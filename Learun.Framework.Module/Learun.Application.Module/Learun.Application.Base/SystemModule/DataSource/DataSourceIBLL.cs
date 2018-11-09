@@ -54,6 +54,14 @@ namespace Learun.Application.Base.SystemModule
         /// 获取数据源的数据
         /// </summary>
         /// <param name="code">数据源编码</param>
+        /// <param name="queryJson">查询条件</param>
+        /// <returns></returns>
+        DataTable GetDataTable(string code, string queryJson = "{}");
+
+        /// <summary>
+        /// 获取数据源的数据
+        /// </summary>
+        /// <param name="code">数据源编码</param>
         /// <param name="strWhere">sql查询条件语句</param>
         /// <param name="queryJson">查询条件</param>
         /// <returns></returns>

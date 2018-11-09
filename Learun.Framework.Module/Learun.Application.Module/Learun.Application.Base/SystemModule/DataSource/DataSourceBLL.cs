@@ -163,6 +163,49 @@ namespace Learun.Application.Base.SystemModule
         /// 获取数据源的数据
         /// </summary>
         /// <param name="code">数据源编码</param>
+        /// <param name="queryJson">查询条件</param>
+        /// <returns></returns>
+        public DataTable GetDataTable(string code, string queryJson = "{}")
+        {
+            try
+            {
+                DataSourceEntity entity = GetEntityByCode(code);
+                if (entity == null)
+                {
+                    return new DataTable();
+                }
+                else
+                {
+                    var strWhere = entity.F_Where;
+                    if (!string.IsNullOrEmpty(strWhere))
+                    {
+                        strWhere = " where " + strWhere;
+                    }
+                    else
+                    {
+                        strWhere = "";
+                    }
+                    var queryParam = queryJson.ToJObject();
+                    string sql = string.Format(" select * From ({0})t {1} ", entity.F_Sql, strWhere);
+                    return databaseLinkIBLL.FindTable(entity.F_DbId, sql, queryParam);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is ExceptionEx)
+                {
+                    throw;
+                }
+                else
+                {
+                    throw ExceptionEx.ThrowBusinessException(ex);
+                }
+            }
+        }
+        /// <summary>
+        /// 获取数据源的数据
+        /// </summary>
+        /// <param name="code">数据源编码</param>
         /// <param name="strWhere">sql查询条件语句</param>
         /// <param name="queryJson">查询条件</param>
         /// <returns></returns>

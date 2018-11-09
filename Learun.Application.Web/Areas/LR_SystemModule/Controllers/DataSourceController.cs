@@ -175,6 +175,21 @@ namespace Learun.Application.Web.Areas.LR_SystemModule.Controllers
         /// <returns></returns>
         [HttpGet]
         [AjaxOnly]
+        public ActionResult GetDataSource(string code,string queryJson)
+        {
+            var data = dataSourceIBLL.GetDataTable(code, queryJson);
+            return Success(data);
+        }
+
+        /// <summary>
+        /// 获取数据源数据
+        /// </summary>
+        /// <param name="code">数据源编号</param>
+        /// <param name="strWhere">sql查询条件语句</param>
+        /// <param name="queryJson">数据源请求条件字串</param>
+        /// <returns></returns>
+        [HttpGet]
+        [AjaxOnly]
         public ActionResult GetDataTable(string code,string strWhere, string queryJson)
         {
             var data = dataSourceIBLL.GetDataTable(code, strWhere, queryJson);
