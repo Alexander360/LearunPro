@@ -84,14 +84,7 @@ namespace Learun.Application.Base.SystemModule
         /// <returns></returns>
         [Column("F_MODIFYDATE")]
         public DateTime? F_ModifyDate { get; set; }
-        /// <summary>
-        /// where语句
-        /// </summary>
-        /// <returns></returns>
-
-        [Column("F_Where")]
-        public string  F_Where { get; set; }
-    #endregion
+        #endregion
 
         #region 扩展操作
         /// <summary>

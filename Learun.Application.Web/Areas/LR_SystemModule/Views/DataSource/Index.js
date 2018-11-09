@@ -32,7 +32,7 @@ var bootstrap = function ($, learun) {
                     title: '添加数据源',
                     url: top.$.rootUrl + '/LR_SystemModule/DataSource/Form',
                     width: 700,
-                    height: 540,
+                    height: 430,
                     callBack: function (id) {
                         return top[id].acceptClick(refreshGirdData);
                     }
@@ -48,7 +48,7 @@ var bootstrap = function ($, learun) {
                         title: '编辑数据源',
                         url: top.$.rootUrl + '/LR_SystemModule/DataSource/Form',
                         width: 700,
-                        height: 540,
+                        height: 430,
                         callBack: function (id) {
                             return top[id].acceptClick(refreshGirdData);
                         }
